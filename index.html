@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+    <h5 style="text-align: center;">Dynamically adding the data to the table</h5>
+    <table class="table" id="myTable">
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Number</th>
+            <th>Pin-code</th>
+        </thead>   
+        <tbody>
+            
+        </tbody> 
+    </table>
+    <div class="container">
+        <form id="myForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="Number">Number</label>
+                <input type="number" class="form-control" id="Number" placeholder="Number">
+            </div>
+            <div class="form-group">
+                <label for="Address">Address</label>
+                <input type="text" class="form-control" id="Address" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <label for="pin-code">pin-code</label>
+                <input type="number" class="form-control" id="pin-code" placeholder="pin-code">
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+        </form>
+    </div>
+    
+
+    <script>
+        
+        document.getElementById('myForm').onsubmit = function() { 
+            var name =  document.getElementById('name').value;
+            var email =  document.getElementById('email').value;
+            var number =  document.getElementById('Number').value;
+            var address =  document.getElementById('Address').value;
+            var pin_code =  document.getElementById('pin-code').value;
+            console.log(name, email, number, address, pin_code)
+
+            var table = document.getElementById("myTable");
+            var row = table.insertRow(table.rows.length);
+
+            var t_name = row.insertCell(0);
+            var t_email = row.insertCell(1);
+            var t_address = row.insertCell(2);
+            var t_number = row.insertCell(3);            
+            var t_pin_code = row.insertCell(4);
+
+            t_name.innerHTML = name;
+            t_email.innerHTML = email;
+            t_number.innerHTML = number;
+            t_address.innerHTML = address;
+            t_pin_code.innerHTML = pin_code;
+
+            return false;
+
+        };
+    </script>
+
+</body>
+</html>
